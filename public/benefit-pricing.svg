@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="Transparent price tag">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#BB8CFA"/><stop offset="1" stop-color="#08BFC4"/></linearGradient></defs>
+  <circle cx="40" cy="40" r="36" fill="url(#g)"/>
+  <path d="m40 20 16 13v25H24V33l16-13Z" fill="none" stroke="#FFF" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M31 37h18v17H31z" fill="none" stroke="#FFF" stroke-width="2.2"/>
+  <circle cx="40" cy="45" r="7" fill="none" stroke="#FFF" stroke-width="2"/>
+  <path d="M40 40v10m3-8c-2-2-6-1-6 1 0 3 6 1 6 4 0 2-4 3-6 1" fill="none" stroke="#FFF" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="m18 19 1.5 3.5L23 24l-3.5 1.5L18 29l-1.5-3.5L13 24l3.5-1.5zm47 11 1 2 2 1-2 1-1 2-1-2-2-1 2-1z" fill="#FFF"/>
+</svg>

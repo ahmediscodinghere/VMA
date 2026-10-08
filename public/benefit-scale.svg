@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="Growth gauge">
+  <path d="M9 48a31 31 0 0 1 62 0" fill="none" stroke="#1B3A7A" stroke-width="16"/>
+  <path d="M9 48a31 31 0 0 1 9-22" fill="none" stroke="#8DC765" stroke-width="16"/>
+  <path d="M18 26a31 31 0 0 1 22-9" fill="none" stroke="#F6D746" stroke-width="16"/>
+  <path d="M40 17a31 31 0 0 1 22 9" fill="none" stroke="#FFA654" stroke-width="16"/>
+  <path d="M62 26a31 31 0 0 1 9 22" fill="none" stroke="#F46B72" stroke-width="16"/>
+  <path d="m40 22-5 31a5 5 0 1 0 10 0z" fill="#4B648B"/>
+  <circle cx="14" cy="64" r="8" fill="#9CD36B"/><circle cx="40" cy="64" r="8" fill="#FFDF51"/><circle cx="66" cy="64" r="8" fill="#FFA1A2"/>
+  <path d="M11 65q3 3 6 0m20 0q3 3 6 0m20 1q3-4 6 0" fill="none" stroke="#738B63" stroke-width="1.7" stroke-linecap="round"/>
+</svg>

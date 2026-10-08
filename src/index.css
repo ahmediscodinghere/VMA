@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap');
+@import 'tailwindcss';
+
+@theme inline {
+  --color-navy: #1B3A7A;
+  --color-navy-dark: #0F2456;
+  --color-navy-light: #2A4E9C;
+  --color-teal: #2DC5B0;
+  --color-teal-dark: #1FA898;
+  --color-teal-light: #4DD9C6;
+  --color-slate: #F0F4FF;
+}
+
+:root {
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: #1a1a2e;
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2DC5B0; border-radius: 3px; }
+
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
+
+/* Counter animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stat-animate {
+  animation: countUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.7s ease forwards;
+}
+
+/* Navy gradient background */
+.hero-bg {
+  background: linear-gradient(135deg, #0F2456 0%, #1B3A7A 50%, #1a4f8a 100%);
+}
+
+/* Teal gradient */
+.teal-gradient {
+  background: linear-gradient(135deg, #2DC5B0, #1FA898);
+}
+
+/* Card hover */
+.service-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(27, 58, 122, 0.12);
+}
+
+/* Nav dropdown */
+.nav-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 50;
+}
+.nav-item:hover .nav-dropdown {
+  display: block;
+}
+
+/* WhatsApp float */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  transition: transform 0.2s ease;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+section[id] { scroll-margin-top: 6rem; }
+:focus-visible { outline: 3px solid #169c8e; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+.brand-logo-crop { display: block; position: relative; width: 234px; height: 65px; overflow: hidden; }
+.brand-logo-crop img { display: block; width: 234px; max-width: none; height: auto; position: absolute; top: -56px; left: 0; }
+@media (max-width: 390px) { .brand-logo-crop { width: 190px; height: 53px; } .brand-logo-crop img { width: 190px; top: -45px; } }
+
+.hero-photo-overlay {
+  background: linear-gradient(90deg, rgba(10,26,62,.95), rgba(10,26,62,.78));
+}
+@media (min-width: 1024px) {
+  .hero-photo-overlay {
+    background: linear-gradient(90deg, #0A1A3E 0%, rgba(10,26,62,.98) 24%, rgba(10,26,62,.84) 39%, rgba(10,26,62,.2) 72%, rgba(10,26,62,.1) 100%);
+  }
+}
+
+/* VAM service roles */
+.vam-role-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:24px}
+.vam-role-card{position:relative;display:flex;min-height:340px;overflow:hidden;border-radius:26px;color:#0b2e46;isolation:isolate;transition:transform .2s,box-shadow .2s}
+.vam-role-card:hover{transform:translateY(-4px);box-shadow:0 16px 32px #173a5c18}
+.vam-role-card:focus-visible{outline:3px solid #1b3a7a;outline-offset:5px}
+.vam-role-teal{background:#087e80;color:#fff}
+.vam-role-aqua{background:#e2f3ef}
+.vam-role-peach{background:#fbe5d7}
+.vam-role-navy{background:#193b70;color:#fff}
+.vam-role-copy{position:relative;z-index:2;width:57%;padding:32px 0 30px 30px;display:flex;flex-direction:column;align-items:flex-start}
+.vam-role-brand{font-size:9px;letter-spacing:.13em;font-weight:800;opacity:.75;margin-bottom:18px}
+.vam-role-copy h3{font-family:Outfit,sans-serif;font-size:28px;font-weight:750;line-height:1.12;margin-bottom:14px;letter-spacing:-.025em}
+.vam-role-copy p{font-size:14px;line-height:1.6;max-width:250px;margin-bottom:24px}
+.vam-role-button{margin-top:auto;display:inline-block;background:#fff;color:#153857;border-radius:9px;padding:10px 19px;font-size:13px;font-weight:750;box-shadow:0 3px 10px #052c4010}
+.vam-role-aqua .vam-role-button,.vam-role-peach .vam-role-button{background:#173b65;color:#fff}
+.vam-role-portrait{position:absolute;z-index:1;right:0;bottom:0;width:43%;height:auto;aspect-ratio:2/3;max-height:300px;display:flex;align-items:flex-end;justify-content:center}
+.vam-role-portrait:before{content:'';position:absolute;width:86%;height:77%;border-radius:22px;background:#27a7aa;bottom:0;z-index:-1;transform:rotate(-10deg);transform-origin:bottom center}
+.vam-role-card:nth-child(2) .vam-role-portrait:before,.vam-role-card:nth-child(6) .vam-role-portrait:before{border-radius:48% 48% 16px 16px;transform:none;background:#8fbfc2}
+.vam-role-card:nth-child(3) .vam-role-portrait:before{background:#eab397;transform:none;border-radius:45% 18px 0 0}
+.vam-role-card:nth-child(4) .vam-role-portrait:before{background:#557ca6;transform:rotate(-8deg)}
+.vam-role-card:nth-child(5) .vam-role-portrait:before{background:#a6cfca;border-radius:48% 48% 0 0;transform:none}
+.vam-role-portrait img{position:absolute;bottom:0;width:auto;max-width:none;height:100%;object-fit:contain;object-position:bottom}
+.vam-role-portrait-wide img{height:97%}
+@media(min-width:1100px){.vam-role-card{min-height:360px}.vam-role-portrait{max-height:320px}.vam-role-copy{padding:36px 0 34px 36px}.vam-role-copy h3{font-size:32px}}
+@media(max-width:760px){.vam-role-grid{grid-template-columns:1fr}.vam-role-card{min-height:330px}}
+@media(max-width:400px){.vam-role-copy{padding-left:22px;width:60%}.vam-role-copy h3{font-size:25px}.vam-role-copy p{font-size:13px}.vam-role-portrait{width:40%;max-height:280px}.vam-role-brand{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.vam-role-card{transition:none}}

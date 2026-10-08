@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="Virtual Assistant Medical healthcare heart">
+  <circle cx="40" cy="40" r="37" fill="#10ACE7"/>
+  <circle cx="40" cy="40" r="30" fill="#1988D9"/>
+  <path d="M40 63C25 52 16 44 16 34c0-8 5-13 12-13 5 0 9 3 12 7 3-4 7-7 12-7 7 0 12 5 12 13 0 10-9 18-24 29Z" fill="#F04D53"/>
+  <path d="M27 21c-7 0-11 5-11 12 0 8 7 16 18 24" fill="#FF7477"/>
+  <path d="M7 39h13l5-8 6 17 5-11h8l5 7 5-5h16" fill="none" stroke="#FFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M49 49h7v-7h7v7h7v7h-7v7h-7v-7h-7z" fill="#FFF"/>
+  <path d="m40 6 1.8 3.7L45.5 11l-3.7 1.5L40 16l-1.8-3.5L34.5 11l3.7-1.3z" fill="#D9FAFF"/>
+</svg>

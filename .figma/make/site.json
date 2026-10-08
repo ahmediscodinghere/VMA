@@ -1,0 +1,12 @@
+{
+  "title": "Virtual Assistant Medical | Remote Healthcare Administrative Support",
+  "description": "Streamline healthcare operations with a virtual medical assistant that enhances patient communication, appointment scheduling, and administrative efficiency.",
+  "icons": { "icon": "/favicon.svg" },
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": true,
+    "ignoreReducedMotion": false
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "epic": {
+    "sourcePage": "https://www.epic.com/",
+    "sourceAsset": "https://media.epic.com/epicdotcom/site/images/header/site-logo.png",
+    "bytes": 2709
+  },
+  "athenahealth": {
+    "sourcePage": "https://www.athenahealth.com/press-kit",
+    "sourceAsset": "https://www.athenahealth.com/resources_ahcom/0223d75b4d0e048c9d8e.svg",
+    "bytes": 10631,
+    "note": "Using existing full-color athenahealth logo for a white background."
+  },
+  "nextgen": {
+    "sourcePage": "https://www.nextgen.com/",
+    "sourceAsset": "https://nextgen.widen.net/content/vsqtemzc0f/svg/NG_Logo_Final_RGB_New.svg",
+    "bytes": 7705
+  },
+  "eclinicalworks": {
+    "sourcePage": "https://www.eclinicalworks.com/",
+    "sourceAsset": "https://www.eclinicalworks.com/wp-content/uploads/2014/08/main-logo.png",
+    "bytes": 2472
+  },
+  "practice-fusion": {
+    "sourcePage": "https://www.practicefusion.com/",
+    "sourceAsset": "https://www.practicefusion.com/assets/images/practice-fusion-logo.svg",
+    "bytes": 7292
+  },
+  "matrixcare": {
+    "sourcePage": "https://www.matrixcare.com/",
+    "sourceAsset": "https://www.matrixcare.com/wp-content/uploads/2026/08/MatrixCare-Logo_RGB.png",
+    "bytes": 10850
+  },
+  "simplepractice": {
+    "sourcePage": "https://www.simplepractice.com/",
+    "sourceAsset": "https://cdn.builder.io/api/v1/image/assets%2Fc1dd4445883e49dcb7e2794dbacad44e%2F3a724facad07450ba5293db0507cc529",
+    "bytes": 3726
+  },
+  "ezderm": {
+    "sourcePage": "https://www.ezderm.com/",
+    "sourceAsset": "https://www.ezderm.com/hs-fs/hubfs/ezderm%20primary%20logo%20with%20padding.png?width=1072&height=328&name=ezderm%20primary%20logo%20with%20padding.png",
+    "bytes": 12234
+  },
+  "compulink": {
+    "sourcePage": "https://compulinkadvantage.com/",
+    "sourceAsset": "https://compulinkadvantage.com/wp-content/uploads/2024/11/chslogo_nosub.png",
+    "bytes": 166338
+  },
+  "practiceq": {
+    "sourcePage": "https://www.practiceq.com/",
+    "sourceAsset": "https://cdn.prod.website-files.com/64a4246675d7602abfa32906/64a42e73a05646ce96c0d5ae_PracticeQ%20Logo%20-%20Color.svg",
+    "bytes": 6096
+  },
+  "pointclickcare": {
+    "sourcePage": "https://pointclickcare.com/",
+    "sourceAsset": "https://pointclickcare.com/wp-content/uploads/2022/03/pcc-logo.png",
+    "bytes": 2241
+  },
+  "eyemd": {
+    "sourcePage": "https://www.eyemdemr.com/",
+    "sourceAsset": "https://www.eyemdemr.com/wp-content/uploads/2023/12/ColorFull.png",
+    "bytes": 198243
+  },
+  "modmed": {
+    "sourcePage": "https://www.modmed.com/",
+    "sourceAsset": "inline official SVG",
+    "note": "Verbatim logo paths from site SVG; standardized SVG namespace and viewBox casing."
+  },
+  "iclaim": {
+    "sourcePage": "https://iclaim.com/index.html",
+    "sourceAsset": "embedded PNG data URI in official site header"
+  },
+  "oracle-health": {
+    "sourcePage": "https://www.oracle.com/health/",
+    "note": "Reused matching existing Oracle Health image as instructed; original image source unavailable."
+  },
+  "therapynotes": {
+    "sourcePage": "https://blog.therapynotes.com/",
+    "sourceAsset": "https://blog.therapynotes.com/hubfs/images/primary/NavLogo@2x.png?noresize",
+    "note": "Header white-and-green wordmark; dark background needed."
+  },
+  "patientkeeper": {
+    "sourcePage": "https://prod-pkhelp.patientkeeper.com/help/8.2.0.0/mobilizer/helpV2/pp_ugv2/gettingstarted_web.03.01.html",
+    "sourceAsset": "https://prod-pkhelp.patientkeeper.com/help/8.2.0.0/mobilizer/helpV2/pp_ugv2/logo-help-medium.jpg"
+  },
+  "nextech": {
+    "sourcePage": "https://www.nextech.com/",
+    "sourceAsset": "https://cdn2.hubspot.net/hubfs/306056/Brochures/Nextech%20Practice%20Management%20Brochure.pdf",
+    "note": "Exact official logo artwork cropped from official brochure cover, rendered at 4x; not generated/recreated."
+  }
+}

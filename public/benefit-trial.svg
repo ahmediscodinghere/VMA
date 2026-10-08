@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="Free trial badge">
+  <path d="M40 5c8 0 12 4 17 6 7 2 13 6 13 14 0 7 3 11 3 16 0 6-4 11-5 18-2 8-8 13-16 13-6 0-10 3-16 3-7 0-12-4-18-7-7-4-9-10-9-17 0-6-3-11-2-17 1-8 6-13 13-16 7-3 12-13 20-13Z" fill="#259CF0"/>
+  <path d="M15 18c5-4 10-4 17-9 7-4 14 3 21 5" fill="none" stroke="#2B3971" stroke-width="6" stroke-linecap="round"/>
+  <text x="40" y="40" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="800" fill="#FDE45D">FREE</text>
+  <text x="40" y="57" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="800" fill="#FFF">TRIAL</text>
+  <circle cx="63" cy="13" r="11" fill="#D9F1F9"/><path d="m58 13 4 4 6-7" fill="none" stroke="#81C866" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

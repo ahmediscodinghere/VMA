@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="Available 24/7">
+  <circle cx="40" cy="40" r="34" fill="#EAFBFC"/>
+  <path d="M20 14A32 32 0 1 1 9 48" fill="none" stroke="#26BEB3" stroke-width="4" stroke-linecap="round"/>
+  <path d="m20 7 1 9-9 1" fill="none" stroke="#26BEB3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="40" y="48" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" fill="#1B3A7A">24/7</text>
+</svg>
