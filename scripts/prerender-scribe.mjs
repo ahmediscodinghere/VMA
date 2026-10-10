@@ -5,7 +5,7 @@ import { MemoryRouter } from 'react-router'
 import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises'
 const server = await createServer({server:{middlewareMode:true},appType:'custom'})
 try {
- for(const [module,slug,prefix] of [['VirtualMedicalScribePage','virtual-medical-scribe','SCRIBE'],['VirtualMedicalReceptionistPage','virtual-medical-receptionist','RECEPTION'],['AboutPage','about-us','ABOUT'],['ContactPage','contact-us','CONTACT'],['ServicesPage','services','SERVICES'],['FAQsPage','faqs','FAQS'],['PricingPage','pricing','PRICING']]) {
+ for(const [module,slug,prefix] of [['VirtualMedicalScribePage','virtual-medical-scribe','SCRIBE'],['VirtualMedicalReceptionistPage','virtual-medical-receptionist','RECEPTION'],['AboutPage','about-us','ABOUT'],['ContactPage','contact-us','CONTACT'],['ServicesPage','services','SERVICES'],['FAQsPage','faqs','FAQS'],['PricingPage','pricing','PRICING'],['MedicalAdminPage','services/medical-admin-assistant','ADMIN'],['MedicalBillingPage','services/medical-billing-assistant','BILLING'],['BlogPage','blog','BLOG'],['MedicalCoderPage','services/virtual-medical-coder','CODER'],['HiringYourVAPage','hiring-your-va','HIRING']]) {
  const loaded=await server.ssrLoadModule('/src/pages/'+module+'.tsx'); const Page=loaded.default, SCRIBE_TITLE=loaded[prefix+'_TITLE'], SCRIBE_DESCRIPTION=loaded[prefix+'_DESCRIPTION']
  let markup=renderToString(React.createElement(MemoryRouter,{initialEntries:['/'+slug+'/']},React.createElement(Page)))
  const assets=await readdir('dist/assets')
@@ -17,7 +17,7 @@ try {
  await mkdir('dist/'+slug,{recursive:true});await writeFile('dist/'+slug+'/index.html',html)
  }
  const base='https://virtual-assistant-medical.ahmed-raza276082.chatgpt.site';
- const slugs=['virtual-medical-scribe','virtual-medical-receptionist','about-us','contact-us','services','faqs','pricing'];
+ const slugs=['virtual-medical-scribe','virtual-medical-receptionist','about-us','contact-us','services','faqs','pricing','services/medical-admin-assistant','services/medical-billing-assistant','blog','services/virtual-medical-coder','hiring-your-va'];
  await writeFile('dist/robots.txt','User-agent: *\n'+slugs.map(s=>'Allow: /'+s+'/\n').join('')+'Allow: /assets/\nDisallow: /\nSitemap: '+base+'/sitemap.xml\n')
  await writeFile('dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+slugs.map(s=>'<url><loc>'+base+'/'+s+'/</loc></url>').join('')+'</urlset>')
  console.log('Scribe page prerendered with metadata, structured data, and sitemap.')

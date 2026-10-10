@@ -4,9 +4,14 @@ import HomePage from './pages/HomePage'
 import ContactPage from './pages/ContactPage'
 import FAQsPage from './pages/FAQsPage'
 import PricingPage from './pages/PricingPage'
+import BlogPage from './pages/BlogPage'
+import HiringYourVAPage from './pages/HiringYourVAPage'
 import AboutPage from './pages/AboutPage'
 import ServicesPage from './pages/ServicesPage'
 import ServiceDetailPage from './pages/ServiceDetailPage'
+import MedicalAdminPage from './pages/MedicalAdminPage'
+import MedicalCoderPage from './pages/MedicalCoderPage'
+import MedicalBillingPage from './pages/MedicalBillingPage'
 import VirtualMedicalScribePage from './pages/VirtualMedicalScribePage'
 
 import VirtualMedicalReceptionistPage from './pages/VirtualMedicalReceptionistPage'
@@ -30,13 +35,18 @@ export const router = createBrowserRouter([
       { index: true, Component: HomePage },
       { path: 'services', Component: ServicesPage },
       { path: 'about-us', Component: AboutPage },
+      { path: 'hiring-your-va', Component: HiringYourVAPage },
       { path: 'contact-us', Component: ContactPage },
       { path: 'faqs', Component: FAQsPage },
       { path: 'pricing', Component: PricingPage },
+      { path: 'blog', Component: BlogPage },
       { path: 'virtual-medical-scribe', Component: VirtualMedicalScribePage },
       { path: 'services/virtual-medical-scribe', element: <Navigate to="/virtual-medical-scribe/" replace /> },
       { path: 'virtual-medical-receptionist', Component: VirtualMedicalReceptionistPage },
       { path: 'services/virtual-medical-receptionist', element: <Navigate to="/virtual-medical-receptionist/" replace /> },
+      { path: 'services/medical-admin-assistant', Component: MedicalAdminPage },
+      { path: 'services/medical-billing-assistant', Component: MedicalBillingPage },
+      { path: 'services/virtual-medical-coder', Component: MedicalCoderPage },
       { path: 'services/:slug', Component: ServiceDetailPage },
       { path: '*', Component: NotFound },
     ],

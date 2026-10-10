@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import ReviewSlider from '../components/ReviewSlider'
+import { TESTIMONIALS } from '../data/testimonials'
 import { Link } from 'react-router'
 import { SERVICES } from '../data/services'
 import { FEATURED_ROLES } from '../data/roles'
@@ -122,12 +124,7 @@ const COMPARISON = [
   { feature: 'Risk-Free Trial', inHouse: '❌', vam: '✅ Up to 40 Hours Free' },
 ]
 
-const TESTIMONIALS = [
-  { name: 'Dr. Elena Martinez', role: 'Family Practice, Los Angeles CA', quote: 'My staff is finally breathing again. The VA handles every call, every chart note — our physicians reclaimed 15 hours a week.', stars: 5 },
-  { name: 'Dr. James Okafor', role: 'Internal Medicine, Houston TX', quote: 'They understand healthcare — the terminology, the urgency, the nuance. That makes all the difference when you trust someone with your practice.', stars: 5 },
-  { name: 'N.P. Lisa Monroe', role: 'Mental Health Practice, New York NY', quote: 'We work with the same assistant every day. She knows our patients, our flow, our quirks. It feels like an in-office hire without the overhead.', stars: 5 },
-  { name: 'Dr. Kimberly Woods', role: 'Pediatrics, Miami FL', quote: 'I trust them with my entire practice operations. Billing, scheduling, prior auths — handled. I focus on my patients. Period.', stars: 5 },
-]
+
 
 const FAQS = [
   { q: 'What is a Medical Virtual Assistant (VMA)?', a: 'A Medical Virtual Assistant is a trained remote healthcare professional who handles administrative, documentation, and coordination tasks for your practice — working within your approved systems without requiring on-site presence.' },
@@ -594,23 +591,7 @@ export default function HomePage() {
               Loved by Healthcare Professionals <span style={{ color: '#2DC5B0' }}>Nationwide</span>
             </h2>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {TESTIMONIALS.map(t => (
-              <div key={t.name} className="p-6 rounded-2xl border border-gray-100 bg-white" style={{ boxShadow: '0 4px 20px rgba(27,58,122,0.07)' }}>
-                <div className="flex gap-0.5 mb-4">{Array.from({ length: t.stars }).map((_, i) => <span key={i} className="text-yellow-400 text-sm">★</span>)}</div>
-                <p className="text-gray-600 text-sm leading-relaxed mb-5 italic">"{t.quote}"</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0" style={{ background: '#1B3A7A' }}>
-                    {t.name.split(' ').map(n => n[0]).slice(0, 2).join('')}
-                  </div>
-                  <div>
-                    <div className="font-bold text-xs" style={{ color: '#1B3A7A' }}>{t.name}</div>
-                    <div className="text-xs text-gray-400">{t.role}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <ReviewSlider reviews={TESTIMONIALS}/>
         </div>
       </section>
 

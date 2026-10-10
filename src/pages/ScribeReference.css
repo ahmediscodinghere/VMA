@@ -204,3 +204,19 @@
 }
 .scribe-reference{--bg:#f0f8f7;--surface:#fff;--ink:#193b55;--muted:#496275;--line:#d3e4e2;--accent:#098d80;--accent-ink:#fff;--accent-soft:#dff3ef;--hl:#e2f7f1;--band:#10294d;--band-ink:#eef4f2;--band-muted:#c0d5df;--band-line:#456079;--font-display:Outfit,sans-serif;--font-body:inherit;--font-mono:inherit}
 .scribe-reference .sec-head:empty{display:none}.scribe-reference .sec-head{margin-bottom:32px}.scribe-reference .stats,.scribe-reference .steps{margin-top:20px}.scribe-reference .step-n,.scribe-reference th,.scribe-reference .best{font-size:13px}.scribe-reference .scribe-editorial .answer{display:block}.scribe-reference .scribe-editorial .best{margin-top:24px}.scribe-reference .scribe-editorial .def{font-size:18px}.scribe-reference .sec li{border-color:var(--line);display:block}.scribe-reference .sec span.d{color:var(--muted)}.scribe-reference .inc li{display:block}.scribe-reference .scribe-exact-copy p{margin-bottom:0}.scribe-reference .scribe-exact-copy ul,.scribe-reference .scribe-exact-copy ol{padding:0;list-style:none}.scribe-reference .scribe-exact-copy h3{margin-top:0}.scribe-reference .mark{display:none}.scribe-reference .scribe-editorial>.scribe-doctor-image{aspect-ratio:auto;position:static}.scribe-reference .scribe-exact-copy{min-width:0}.scribe-reference .scribe-editorial{align-items:center}.scribe-reference .scribe-section{scroll-margin-top:100px}
+
+/* Five distinct workflow photo backdrops with a white reading surface. */
+.scribe-reference .steps{gap:14px;border-top:0}
+.scribe-reference .steps .step{padding:192px 18px 24px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background-color:white;background-image:linear-gradient(to bottom,rgba(255,255,255,0) 65px,rgba(255,255,255,.45) 130px,#fff 190px),var(--scribe-process-photo);background-size:100% 100%,auto 190px;background-position:top center;background-repeat:no-repeat;box-shadow:0 8px 24px #173c5509}
+.scribe-reference .steps .step-n{font-size:.875rem}.scribe-reference .steps .step p{font-size:1rem}.scribe-reference .steps .lanes{font-size:.875rem}.scribe-reference .steps .lanes dt{font-size:.75rem}
+.scribe-reference .scribe-process-photo-1{--scribe-process-photo:url('/images/scribe-process-1.webp')}
+.scribe-reference .scribe-process-photo-2{--scribe-process-photo:url('/images/scribe-process-2.webp')}
+.scribe-reference .scribe-process-photo-3{--scribe-process-photo:url('/images/scribe-process-3.webp')}
+.scribe-reference .scribe-process-photo-4{--scribe-process-photo:url('/images/scribe-process-4.webp')}
+.scribe-reference .scribe-process-photo-5{--scribe-process-photo:url('/images/scribe-process-5.webp')}
+@media(max-width:1000px){.scribe-reference .steps{grid-template-columns:repeat(2,minmax(0,1fr))}.scribe-reference .steps .step{background-size:100% 100%,100% auto}}
+@media(max-width:600px){.scribe-reference .steps{grid-template-columns:1fr}}
+
+.scribe-reference #scribe-section-15{background-color:#eef8fb;background-image:linear-gradient(90deg,rgba(240,249,251,.86),rgba(240,249,251,.48)),url('/images/scribe-fit-backdrop.webp');background-size:cover;background-position:center;position:relative}
+.scribe-reference #scribe-section-15 .scribe-wrap{background:rgba(255,255,255,.72);border:1px solid #fff;border-radius:24px;padding:38px;box-shadow:0 12px 35px #173c5508}
+@media(max-width:600px){.scribe-reference #scribe-section-15 .scribe-wrap{padding:24px 20px}}

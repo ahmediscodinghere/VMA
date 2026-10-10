@@ -1,18 +1,20 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation, Outlet } from 'react-router'
 import logoImg from '../assets/logo1.png'
 import { SERVICES } from '../data/services'
+import ServicesMenu from './ServicesMenu'
+import ResourcesMenu from './ResourcesMenu'
 
 const NAV_LINKS = [
   { label: 'Home', to: '/' },
   { label: 'Services', to: '/services' },
   { label: 'About Us', to: '/about-us/' },
-  { label: 'Why Choose Us', to: '/#why-us' },
+  { label: 'Resources', to: '/hiring-your-va/' },
   { label: 'Specialties', to: '/#specialties' },
   { label: 'Contact', to: '/contact-us/' },
 ]
 
-const FOOTER_COMPANY = ['Home', 'About Us', 'Services', 'Why Choose Us', 'Contact', "FAQ’s", 'Pricing']
+const FOOTER_COMPANY = ['Home', 'About Us', 'Services', 'Why Choose Us', 'Contact', "FAQ’s", 'Pricing', 'Blog']
 const FOOTER_SERVICES_1 = SERVICES.slice(0, 8)
 
 export default function Layout() {
@@ -20,6 +22,12 @@ export default function Layout() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
   const [megaOpen, setMegaOpen] = useState(false)
   const location = useLocation()
+  const servicesButton = useRef<HTMLButtonElement>(null)
+  const leaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const openServices = () => { if (leaveTimer.current) clearTimeout(leaveTimer.current); setMegaOpen(true) }
+  const closeServices = () => { leaveTimer.current = setTimeout(() => setMegaOpen(false), 160) }
+  useEffect(() => { setMegaOpen(false); setMobileOpen(false); setMobileServicesOpen(false) }, [location.pathname])
+  useEffect(() => () => { if (leaveTimer.current) clearTimeout(leaveTimer.current) }, [])
 
   const isActive = (to: string) => location.pathname === to || (to !== '/' && location.pathname.startsWith(to + '/'))
 
@@ -62,11 +70,16 @@ export default function Layout() {
               link.label === 'Services' ? (
                 <div
                   key="services"
-                  className="relative"
-                  onMouseEnter={() => setMegaOpen(true)}
-                  onMouseLeave={() => setMegaOpen(false)}
+                  className="vam-services-shell"
+                  onMouseEnter={openServices}
+                  onMouseLeave={closeServices}
+                  onBlur={e => { if (!e.currentTarget.contains(e.relatedTarget)) setMegaOpen(false) }}
+                  onKeyDown={e => { if (e.key === 'Escape') { setMegaOpen(false); servicesButton.current?.focus() } }}
                 >
                   <button
+                    ref={servicesButton} aria-expanded={megaOpen} aria-controls="services-navigation"
+                    onClick={() => setMegaOpen(v => !v)}
+                    onKeyDown={e => { if (e.key === 'ArrowDown') { e.preventDefault(); setMegaOpen(true); requestAnimationFrame(() => document.querySelector<HTMLAnchorElement>('#services-navigation a')?.focus()) } }}
                     className={`px-3 py-2 rounded-lg flex items-center gap-1 transition-colors ${isActive('/services') ? 'text-teal-600 bg-teal-50' : 'hover:text-teal-600 hover:bg-gray-50'}`}
                     style={{ color: isActive('/services') ? '#2DC5B0' : undefined }}
                   >
@@ -74,40 +87,9 @@ export default function Layout() {
                     <svg className="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                   </button>
 
-                  {/* Mega menu */}
-                  {megaOpen && (
-                    <div
-                      className="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-white rounded-2xl shadow-2xl border border-gray-100 p-6 w-[720px]"
-                      style={{ boxShadow: '0 20px 60px rgba(27,58,122,0.15)' }}
-                    >
-                      <div className="mb-4 pb-3 border-b border-gray-100">
-                        <Link
-                          to="/services"
-                          className="inline-flex items-center gap-2 text-sm font-bold px-4 py-2 rounded-lg transition-colors"
-                          style={{ color: '#1B3A7A' }}
-                          onMouseOver={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#F0F4FF' }}
-                          onMouseOut={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'transparent' }}
-                        >
-                          View All Services →
-                        </Link>
-                      </div>
-                      <div className="grid grid-cols-3 gap-1">
-                        {SERVICES.map(s => (
-                          <Link
-                            key={s.slug}
-                            to={`/services/${s.slug}`}
-                            className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-sm text-gray-700 hover:bg-teal-50 transition-colors group"
-                            onClick={() => setMegaOpen(false)}
-                          >
-                            <span className="text-base flex-shrink-0">{s.icon}</span>
-                            <span className="group-hover:text-teal-700 font-medium leading-tight">{s.shortTitle}</span>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                  {megaOpen && <div className="vam-services-position"><ServicesMenu close={() => setMegaOpen(false)}/></div>}
                 </div>
-              ) : (
+              ) : link.label === 'Resources' ? (<ResourcesMenu key="resources"/>) : (
                 <Link
                   key={link.label}
                   to={link.to}
@@ -169,29 +151,14 @@ export default function Layout() {
                 <svg className={`w-4 h-4 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
               </button>
               {mobileServicesOpen && (
-                <div className="pl-4 mt-1 space-y-0.5">
-                  <Link to="/services" className="block px-3 py-2 rounded-lg text-teal-600 font-semibold hover:bg-teal-50 text-xs" onClick={() => setMobileOpen(false)}>
-                    → View All Services
-                  </Link>
-                  {SERVICES.map(s => (
-                    <Link
-                      key={s.slug}
-                      to={`/services/${s.slug}`}
-                      className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-50 text-gray-600 text-xs"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      <span>{s.icon}</span>
-                      <span>{s.shortTitle}</span>
-                    </Link>
-                  ))}
-                </div>
+                <ServicesMenu close={() => { setMobileOpen(false); setMobileServicesOpen(false) }}/>
+
               )}
             </div>
 
             <Link to="/about-us/" className="block px-3 py-2.5 rounded-lg hover:bg-gray-50 text-gray-700" onClick={() => setMobileOpen(false)}>About Us</Link>
-            {['Why Choose Us', 'Contact'].map(label => (
-              <Link key={label} to={label === 'Contact' ? '/contact-us/' : label === 'FAQ’s' ? '/faqs/' : `/#${label.toLowerCase().replace(/\s+/g, '-')}`} className="block px-3 py-2.5 rounded-lg hover:bg-gray-50 text-gray-700" onClick={() => setMobileOpen(false)}>{label}</Link>
-            ))}
+            <ResourcesMenu close={() => setMobileOpen(false)}/>
+            <Link to="/contact-us/" className="block px-3 py-2.5 rounded-lg hover:bg-gray-50 text-gray-700" onClick={() => setMobileOpen(false)}>Contact</Link>
 
             <div className="pt-3 flex flex-col gap-2">
               <Link
@@ -237,7 +204,7 @@ export default function Layout() {
                 {FOOTER_COMPANY.map(label => (
                   <li key={label}>
                     <Link
-                      to={label === 'Home' ? '/' : label === 'Services' ? '/services' : label === 'About Us' ? '/about-us/' : label === 'Contact' ? '/contact-us/' : label === 'FAQ’s' ? '/faqs/' : label === 'Pricing' ? '/pricing/' : `/#${label.toLowerCase().replace(/\s+/g, '-')}`} 
+                      to={label === 'Home' ? '/' : label === 'Services' || label === 'Why Choose Us' ? '/services/' : label === 'About Us' ? '/about-us/' : label === 'Contact' ? '/contact-us/' : label === 'FAQ’s' ? '/faqs/' : label === 'Pricing' ? '/pricing/' : label === 'Blog' ? '/blog/' : `/#${label.toLowerCase().replace(/\s+/g, '-')}`} 
                       className="hover:text-teal-400 transition-colors"
                     >
                       {label}
