@@ -6,6 +6,7 @@ import FAQsPage from './pages/FAQsPage'
 import PricingPage from './pages/PricingPage'
 import BlogPage from './pages/BlogPage'
 import HiringYourVAPage from './pages/HiringYourVAPage'
+import HipaaPage from './pages/HipaaPage'
 import AboutPage from './pages/AboutPage'
 import ServicesPage from './pages/ServicesPage'
 import ServiceDetailPage from './pages/ServiceDetailPage'
@@ -36,6 +37,7 @@ export const router = createBrowserRouter([
       { path: 'services', Component: ServicesPage },
       { path: 'about-us', Component: AboutPage },
       { path: 'hiring-your-va', Component: HiringYourVAPage },
+      { path: 'hipaa-compliant-virtual-assistant', Component: HipaaPage },
       { path: 'contact-us', Component: ContactPage },
       { path: 'faqs', Component: FAQsPage },
       { path: 'pricing', Component: PricingPage },
