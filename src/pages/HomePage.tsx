@@ -155,12 +155,15 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 }
 
 export default function HomePage() {
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', zip: '', service: '', message: '' })
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', zip: '', service: '', preferredDate: '', preferredTime: '', message: '' })
+  const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC'
+  const today = new Date()
+  const earliestDate = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     const subject = encodeURIComponent(`Virtual Assistant Medical inquiry${formData.service ? `: ${formData.service}` : ''}`)
-    const body = encodeURIComponent(`Name: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nPractice ZIP: ${formData.zip}\nService: ${formData.service}\n\n${formData.message}`)
+    const body = encodeURIComponent(`Name: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nPractice ZIP: ${formData.zip}\nService: ${formData.service}\nPreferred date: ${formData.preferredDate || 'Not specified'}\nPreferred time: ${formData.preferredTime || 'Not specified'}\nTime zone: ${formData.preferredTime ? timeZone : 'Not specified'}\n\n${formData.message}`)
     window.location.href = `mailto:info@virtualassistantmedical.com?subject=${subject}&body=${body}`
   }
 
@@ -661,6 +664,19 @@ export default function HomePage() {
                       {SERVICES.map(s => <option key={s.slug} value={s.slug}>{s.shortTitle}</option>)}
                     </select>
                   </div>
+                </div>
+                <div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="min-w-0">
+                      <label htmlFor="contact-preferred-date" className="text-xs font-semibold text-gray-600 uppercase tracking-wide block mb-1.5">Preferred Date</label>
+                      <input id="contact-preferred-date" name="preferredDate" type="date" min={earliestDate} value={formData.preferredDate} onChange={e => setFormData({ ...formData, preferredDate: e.target.value })} aria-describedby="contact-scheduling-help" className="w-full min-w-0 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:border-teal-400 transition-all bg-white" />
+                    </div>
+                    <div className="min-w-0">
+                      <label htmlFor="contact-preferred-time" className="text-xs font-semibold text-gray-600 uppercase tracking-wide block mb-1.5">Preferred Time</label>
+                      <input id="contact-preferred-time" name="preferredTime" type="time" value={formData.preferredTime} onChange={e => setFormData({ ...formData, preferredTime: e.target.value })} aria-describedby="contact-scheduling-help" className="w-full min-w-0 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:border-teal-400 transition-all bg-white" />
+                    </div>
+                  </div>
+                  <p id="contact-scheduling-help" className="text-xs text-gray-500 mt-2">Optional. Choose a convenient date and time in your local time zone ({timeZone}). We’ll confirm availability with you.</p>
                 </div>
                 <div>
                   <label htmlFor="contact-message" className="text-xs font-semibold text-gray-600 uppercase tracking-wide block mb-1.5">Tell Us About Your Practice</label>
