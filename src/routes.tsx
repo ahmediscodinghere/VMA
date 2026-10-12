@@ -7,6 +7,7 @@ import PricingPage from './pages/PricingPage'
 import BlogPage from './pages/BlogPage'
 import HiringYourVAPage from './pages/HiringYourVAPage'
 import HipaaPage from './pages/HipaaPage'
+import RemotePatientMonitoringPage from './pages/RemotePatientMonitoringPage'
 import AboutPage from './pages/AboutPage'
 import ServicesPage from './pages/ServicesPage'
 import ServiceDetailPage from './pages/ServiceDetailPage'
@@ -49,6 +50,7 @@ export const router = createBrowserRouter([
       { path: 'services/medical-admin-assistant', Component: MedicalAdminPage },
       { path: 'services/medical-billing-assistant', Component: MedicalBillingPage },
       { path: 'services/virtual-medical-coder', Component: MedicalCoderPage },
+      { path: 'services/remote-patient-monitoring-support', Component: RemotePatientMonitoringPage },
       { path: 'services/:slug', Component: ServiceDetailPage },
       { path: '*', Component: NotFound },
     ],
