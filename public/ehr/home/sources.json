@@ -1,0 +1,134 @@
+[
+  {
+    "name": "Epic",
+    "image": "/ehr/home/epic.png",
+    "sourceAsset": "https://virtualmedicalassistant.us/wp-content/uploads/2025/07/Copy-of-VCA-Clints-LOGO.png",
+    "referencePage": "https://virtualmedicalassistant.us/"
+  },
+  {
+    "name": "eClinicalWorks",
+    "image": "/ehr/home/eclinicalworks.webp",
+    "sourceAsset": "https://virtualmedicalassistant.us/wp-content/uploads/2025/04/eclinical-works-1.webp",
+    "referencePage": "https://virtualmedicalassistant.us/"
+  },
+  {
+    "name": "Elation",
+    "image": "/ehr/home/elation.webp",
+    "sourceAsset": "https://virtualmedicalassistant.us/wp-content/uploads/2024/11/Elation.webp",
+    "referencePage": "https://virtualmedicalassistant.us/"
+  },
+  {
+    "name": "eMedicalPractice",
+    "image": "/ehr/home/emedicalpractice.webp",
+    "sourceAsset": "https://virtualmedicalassistant.us/wp-content/uploads/2025/04/emedical.webp",
+    "referencePage": "https://virtualmedicalassistant.us/"
+  },
+  {
+    "name": "Office Ally",
+    "image": "/ehr/home/office-ally.webp",
+    "sourceAsset": "https://virtualmedicalassistant.us/wp-content/uploads/2025/04/Office-Ally-.webp",
+    "referencePage": "https://virtualmedicalassistant.us/"
+  },
+  {
+    "name": "talkEHR",
+    "image": "/ehr/home/talkehr.webp",
+    "sourceAsset": "https://virtualmedicalassistant.us/wp-content/uploads/2025/04/Talk-EHR-.webp",
+    "referencePage": "https://virtualmedicalassistant.us/"
+  },
+  {
+    "name": "NextPatient",
+    "image": "/ehr/home/nextpatient.webp",
+    "sourceAsset": "https://virtualmedicalassistant.us/wp-content/uploads/2025/04/Next-Patient-1-1.webp",
+    "referencePage": "https://virtualmedicalassistant.us/"
+  },
+  {
+    "name": "Practice Fusion",
+    "image": "/ehr/scribe/practice-fusion.svg",
+    "sourceAsset": "https://www.practicefusion.com/assets/images/practice-fusion-logo.svg",
+    "referencePage": "https://virtualmedicalassistant.us/"
+  },
+  {
+    "name": "DrChrono",
+    "image": "/ehr/home/drchrono.webp",
+    "sourceAsset": "https://virtualmedicalassistant.us/wp-content/uploads/2024/11/Dr-Chrono.webp",
+    "referencePage": "https://virtualmedicalassistant.us/"
+  },
+  {
+    "name": "TherapyNotes",
+    "image": "/ehr/home/therapynotes.webp",
+    "sourceAsset": "https://virtualmedicalassistant.us/wp-content/uploads/2024/11/Therapy-Notes.webp",
+    "referencePage": "https://virtualmedicalassistant.us/"
+  },
+  {
+    "name": "AdvancedMD",
+    "image": "/ehr/home/advancedmd.webp",
+    "sourceAsset": "https://virtualmedicalassistant.us/wp-content/uploads/2024/11/Advance-MD.webp",
+    "referencePage": "https://virtualmedicalassistant.us/"
+  },
+  {
+    "name": "PracticeQ",
+    "image": "/ehr/scribe/practiceq.svg",
+    "sourceAsset": "https://cdn.prod.website-files.com/64a4246675d7602abfa32906/64a42e73a05646ce96c0d5ae_PracticeQ%20Logo%20-%20Color.svg",
+    "referencePage": "https://virtualmedicalassistant.us/"
+  },
+  {
+    "name": "Plexia",
+    "image": "/ehr/home/plexia.webp",
+    "sourceAsset": "https://virtualmedicalassistant.us/wp-content/uploads/2024/11/Plexia.webp",
+    "referencePage": "https://virtualmedicalassistant.us/"
+  },
+  {
+    "name": "Jane",
+    "image": "/ehr/home/jane.webp",
+    "sourceAsset": "https://virtualmedicalassistant.us/wp-content/uploads/2024/11/Jane.webp",
+    "referencePage": "https://virtualmedicalassistant.us/"
+  },
+  {
+    "name": "CharmHealth",
+    "image": "/ehr/home/charmhealth.webp",
+    "sourceAsset": "https://virtualmedicalassistant.us/wp-content/uploads/2024/11/Charm-Health.webp",
+    "referencePage": "https://virtualmedicalassistant.us/"
+  },
+  {
+    "name": "Azalea Health",
+    "image": "/ehr/home/azalea-health.webp",
+    "sourceAsset": "https://virtualmedicalassistant.us/wp-content/uploads/2024/11/Azelea.webp",
+    "referencePage": "https://virtualmedicalassistant.us/"
+  },
+  {
+    "name": "athenahealth",
+    "image": "/ehr/scribe/athenahealth.svg",
+    "sourceAsset": "https://www.athenahealth.com/resources_ahcom/0223d75b4d0e048c9d8e.svg",
+    "referencePage": "https://virtualmedicalassistant.us/"
+  },
+  {
+    "name": "Sessions Health",
+    "image": "/ehr/home/sessions-health.webp",
+    "sourceAsset": "https://virtualmedicalassistant.us/wp-content/uploads/2025/05/Sessions-Health-1-1.webp",
+    "referencePage": "https://virtualmedicalassistant.us/"
+  },
+  {
+    "name": "Atlas MD",
+    "image": "/ehr/home/atlas-md.webp",
+    "sourceAsset": "https://virtualmedicalassistant.us/wp-content/uploads/2025/05/AtLast-MD-.webp",
+    "referencePage": "https://virtualmedicalassistant.us/"
+  },
+  {
+    "name": "Tebra",
+    "image": "/ehr/home/tebra.webp",
+    "sourceAsset": "https://virtualmedicalassistant.us/wp-content/uploads/2025/05/tebra-1-3.webp",
+    "referencePage": "https://virtualmedicalassistant.us/"
+  },
+  {
+    "name": "Qualifacts",
+    "image": "/ehr/home/qualifacts.webp",
+    "sourceAsset": "https://virtualmedicalassistant.us/wp-content/uploads/2025/05/Insync-.webp",
+    "referencePage": "https://virtualmedicalassistant.us/"
+  },
+  {
+    "name": "NextGen Healthcare",
+    "image": "/ehr/scribe/nextgen.svg",
+    "sourceAsset": "https://nextgen.widen.net/content/vsqtemzc0f/svg/NG_Logo_Final_RGB_New.svg",
+    "referencePage": "https://virtualmedicalassistant.us/"
+  }
+]
