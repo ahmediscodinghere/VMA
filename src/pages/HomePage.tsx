@@ -216,7 +216,72 @@ export default function HomePage() {
               <strong>Virtual Assistant Medical</strong> provides healthcare-trained, <strong>HIPAA-compliant medical virtual assistants</strong> who support scheduling, billing coordination, documentation, patient communication, and daily administrative tasks—helping your team reduce workload and focus more on quality patient care.
             </p>
 
-            {…1549 tokens truncated… 20 5v6c0 5-3.2 8.4-8 11-4.8-2.6-8-6-8-11V5l8-3Z" /><path d="M12 7v9m-4.5-4.5h9" /></svg>
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4 mb-10">
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-white transition-all"
+                style={{ background: '#2DC5B0', boxShadow: '0 8px 32px rgba(45,197,176,0.4)' }}
+                onMouseOver={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#1FA898' }}
+                onMouseOut={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#2DC5B0' }}
+              >
+                Start Your Free 40-Hour Trial →
+              </a>
+              <Link
+                to="/services"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-semibold border transition-all"
+                style={{ borderColor: 'rgba(255,255,255,0.3)', color: 'white' }}
+                onMouseOver={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,255,255,0.7)' }}
+                onMouseOut={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,255,255,0.3)' }}
+              >
+                Explore All 18 Services
+              </Link>
+            </div>
+
+            {/* Trust pills */}
+            <div className="flex flex-wrap gap-3">
+              {['✓ No Setup Fees', '✓ Cancel Anytime', '✓ 40 Hrs Free Trial', '✓ Onboard in 48 hrs'].map(t => (
+                <span key={t} className="px-3 py-1.5 rounded-full text-xs font-semibold" style={{ background: 'rgba(255,255,255,0.08)', color: 'rgba(190,220,255,0.9)', border: '1px solid rgba(255,255,255,0.12)' }}>{t}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Assistant options */}
+      <section className="relative overflow-hidden bg-[#F5FAFC] px-4 py-20 lg:py-24" aria-labelledby="assistant-options-heading">
+        <div className="pointer-events-none absolute -right-20 -top-24 h-80 w-80 rounded-full bg-[#D9F6F2] blur-3xl" aria-hidden="true" />
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-20">
+          <div>
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-[#168F91]">Support matched to your practice</p>
+            <h2 id="assistant-options-heading" className="mb-5 text-3xl font-extrabold leading-tight text-[#0F2456] sm:text-4xl lg:text-5xl" style={{ fontFamily: 'Outfit, sans-serif' }}>
+              What You Get with<br /><span className="text-[#20B9AD]">Virtual Assistant Medical</span>
+            </h2>
+            <p className="mb-8 max-w-2xl text-base leading-relaxed text-[#49647A] sm:text-lg">Choose the support profile that fits your patients, team, and workflow. Open each option to see how VAM can help you define the right match.</p>
+            <div className="space-y-3">
+              {ASSISTANT_OPTIONS.map((option, index) => (
+                <details key={option.title} className="group rounded-2xl border border-[#D9E9ED] bg-white shadow-[0_8px_28px_rgba(17,50,81,0.06)] open:border-[#8ADBD3] open:shadow-[0_12px_34px_rgba(17,50,81,0.10)]" open={index === 0}>
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 text-left text-lg font-bold text-[#0F315A] marker:hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#168F91] sm:px-6 [&::-webkit-details-marker]:hidden" style={{ fontFamily: 'Outfit, sans-serif' }}>
+                    <span>{option.title}</span>
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#DDF7F3] text-[#137F87] transition-colors group-open:bg-[#1BB9B0] group-open:text-white" aria-hidden="true">
+                      <svg className="h-5 w-5 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
+                    </span>
+                  </summary>
+                  <div className="border-t border-[#E6F0F2] px-5 pb-6 pt-5 sm:px-6">
+                    {option.paragraphs.map(paragraph => <p key={paragraph} className="mb-4 text-base leading-relaxed text-[#36536A]">{paragraph}</p>)}
+                    <Link to={option.href} className="inline-flex items-center rounded-lg font-bold text-[#137F87] underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#137F87]">{option.linkLabel} <span className="ml-2" aria-hidden="true">→</span></Link>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+          <div className="relative mx-auto w-full max-w-[440px] lg:mx-0" aria-label="Medical virtual assistant illustration">
+            <div className="absolute bottom-[7%] left-[9%] h-[70%] w-[82%] rounded-t-[220px] bg-[#DDF7F4]" aria-hidden="true" />
+            <div className="absolute bottom-[7%] left-[21%] h-[57%] w-[58%] rounded-t-[170px] border-[18px] border-white/65" aria-hidden="true" />
+            <img src={optionsAssistant} alt="Illustrative healthcare virtual assistant in navy and teal scrubs" loading="lazy" className="relative z-10 block h-auto w-full object-contain" />
+            <div className="absolute bottom-[28%] right-0 z-20 flex items-center gap-2 rounded-2xl border-2 border-[#2DC5B0] bg-[#0F315A] px-3 py-2 text-white shadow-[0_16px_35px_rgba(15,49,90,0.22)] sm:right-[-1.25rem] sm:gap-3 sm:px-4 sm:py-3" aria-label="HIPAA compliant">
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#2DC5B0] text-[#0F315A] sm:h-12 sm:w-12" aria-hidden="true">
+                <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2 20 5v6c0 5-3.2 8.4-8 11-4.8-2.6-8-6-8-11V5l8-3Z" /><path d="M12 7v9m-4.5-4.5h9" /></svg>
               </span>
               <span className="text-left font-extrabold leading-none tracking-tight" style={{ fontFamily: 'Outfit, sans-serif' }}><span className="block text-lg sm:text-2xl">HIPAA</span><span className="mt-0.5 block text-xs uppercase tracking-[0.12em] text-[#9CEBE2] sm:text-sm">Compliant</span></span>
             </div>
