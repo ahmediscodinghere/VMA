@@ -8,6 +8,9 @@ import BlogPage from './pages/BlogPage'
 import HiringYourVAPage from './pages/HiringYourVAPage'
 import HipaaPage from './pages/HipaaPage'
 import RemotePatientMonitoringPage from './pages/RemotePatientMonitoringPage'
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
+import TermsPage from './pages/TermsPage'
+import ReturnPolicyPage from './pages/ReturnPolicyPage'
 import AboutPage from './pages/AboutPage'
 import ServicesPage from './pages/ServicesPage'
 import ServiceDetailPage from './pages/ServiceDetailPage'
@@ -40,6 +43,9 @@ export const router = createBrowserRouter([
       { path: 'hiring-your-va', Component: HiringYourVAPage },
       { path: 'hipaa-compliant-virtual-assistant', Component: HipaaPage },
       { path: 'contact-us', Component: ContactPage },
+      { path: 'privacy-policy', Component: PrivacyPolicyPage },
+      { path: 'terms-and-conditions', Component: TermsPage },
+      { path: 'return-policy', Component: ReturnPolicyPage },
       { path: 'faqs', Component: FAQsPage },
       { path: 'pricing', Component: PricingPage },
       { path: 'blog', Component: BlogPage },

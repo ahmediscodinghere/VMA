@@ -4,6 +4,7 @@ import logoImg from '../assets/logo1.png'
 import { SERVICES } from '../data/services'
 import ServicesMenu from './ServicesMenu'
 import ResourcesMenu from './ResourcesMenu'
+import './PolicyPage.css'
 
 const NAV_LINKS = [
   { label: 'Home', to: '/' },
@@ -257,9 +258,13 @@ export default function Layout() {
           </div>
 
           {/* Bottom bar */}
-          <div className="border-t border-blue-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-blue-400">
+          <div className="vam-footer-bottom">
             <p>© {new Date().getFullYear()} Virtual Assistant Medical. All Rights Reserved.</p>
-
+            <nav aria-label="Legal policies"><ul className="vam-legal-footer">
+              <li><Link to="/privacy-policy/" aria-current={location.pathname.replace(/\/$/, '') === '/privacy-policy' ? 'page' : undefined}>Privacy Policy</Link></li>
+              <li><Link to="/terms-and-conditions/" aria-current={location.pathname.replace(/\/$/, '') === '/terms-and-conditions' ? 'page' : undefined}>Terms &amp; Conditions</Link></li>
+              <li><Link to="/return-policy/" aria-current={location.pathname.replace(/\/$/, '') === '/return-policy' ? 'page' : undefined}>Return Policy</Link></li>
+            </ul></nav>
           </div>
         </div>
       </footer>
