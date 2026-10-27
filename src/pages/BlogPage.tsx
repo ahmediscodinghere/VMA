@@ -1,15 +1,25 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router'
 import { BLOG_POSTS } from '../data/blogPosts'
 import './BlogPage.css'
 
-export const BLOG_TITLE = 'Medical Virtual Assistant Blog | Healthcare Practice Guides'
+export const BLOG_TITLE = 'Medical Virtual Assistant Blog | VAM Insights'
 export const BLOG_DESCRIPTION = 'Explore six healthcare guides on medical receptionists, scribes, billing, dental support, bilingual assistants, and practice administration.'
 
 export default function BlogPage() {
-  return <main className="vam-blog">
+  useEffect(() => {
+    const tags=Array.from(document.querySelectorAll<HTMLMetaElement>('meta[name="robots"]'))
+    const old=tags.map(t=>t.content);tags.forEach(t=>t.content='index, follow')
+    return()=>tags.forEach((t,i)=>t.content=old[i])
+  }, [])
+  const url='https://virtualassistantmedical.us/blog/'
+  const schema={'@context':'https://schema.org','@type':'CollectionPage',name:BLOG_TITLE,url,description:BLOG_DESCRIPTION,mainEntity:{'@type':'ItemList',itemListElement:BLOG_POSTS.map((post,i)=>({'@type':'ListItem',position:i+1,name:post.title,url:url+post.slug+'/'}))}}
+  return <div className="vam-blog">
     <title>{BLOG_TITLE}</title>
     <meta name="description" content={BLOG_DESCRIPTION}/>
-    <link rel="canonical" href="https://virtualassistantmedical.us/blog/"/>
+    <link rel="canonical" href={url}/>
+    <meta property="og:title" content={BLOG_TITLE}/><meta property="og:description" content={BLOG_DESCRIPTION}/><meta property="og:url" content={url}/><meta property="og:type" content="website"/>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g,'\\u003c')}}/>
     <header className="blog-list-hero">
       <div className="blog-wrap">
         <nav aria-label="Breadcrumb"><Link to="/">Home</Link><span> / Blog</span></nav>
@@ -20,7 +30,7 @@ export default function BlogPage() {
     </header>
     <section className="blog-section" aria-labelledby="blog-guides-heading">
       <div className="blog-wrap">
-        <div className="blog-section-heading"><div><span className="blog-label">Healthcare insights</span><h2 id="blog-guides-heading">Latest Articles</h2></div><p>Explore expert-informed administrative tips and clear, practical workflows.</p></div>
+        <div className="blog-section-heading"><div><span className="blog-label">Healthcare insights</span><h2 id="blog-guides-heading">Latest Articles</h2></div><p>Explore practical administrative guides and clear workflows for your team.</p></div>
         <div className="blog-grid">
           {BLOG_POSTS.map(post=><article className="blog-card" key={post.slug}>
             <Link to={`/blog/${post.slug}/`} className="blog-card-photo" aria-label={`Read ${post.title}`}>
@@ -43,5 +53,5 @@ export default function BlogPage() {
         <img src="/images/contact-vam-assistant.webp" alt="Virtual medical assistant speaking to a patient using a headset" loading="lazy"/>
       </div>
     </section>
-  </main>
+  </div>
 }

@@ -1,10 +1,10 @@
 export type BlogSection = { heading: string; paragraphs: string[]; points?: string[] }
 export type BlogFAQ = { question: string; answer: string }
 export type BlogPost = {
-  slug: string; category: string; title: string; excerpt: string; metaDescription: string;
+  slug: string; metaTitle: string; category: string; title: string; excerpt: string; metaDescription: string;
   image: string; imageAlt: string; published: string; readTime: string; focusKeyword: string;
   intro: string[]; sections: BlogSection[]; ctaTitle: string; ctaText: string;
-  conclusion: string[]; faqs: BlogFAQ[]; serviceLink: string; serviceLabel: string
+  sources: {label: string; url: string}[]; conclusion: string[]; faqs: BlogFAQ[]; serviceLink: string; serviceLabel: string
 }
 export const BLOG_POSTS: BlogPost[] = [
   {
@@ -16,7 +16,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "image": "/images/reception-patient-service.webp",
     "imageAlt": "Medical reception assistant managing patient communication and appointments",
     "published": "2026-10-27",
-    "readTime": "8 min read",
+    "readTime": "5 min read",
     "focusKeyword": "virtual medical receptionist",
     "intro": [
       "A busy medical front desk rarely has a quiet hour. The phone rings while a patient is checking in, another caller needs to reschedule, and a provider asks for a message to be passed along. When everything happens at once, even a capable team can struggle to keep up.",
@@ -111,7 +111,14 @@ export const BLOG_POSTS: BlogPost[] = [
       }
     ],
     "serviceLink": "/virtual-medical-receptionist/",
-    "serviceLabel": "Explore virtual medical receptionist services"
+    "serviceLabel": "Explore virtual medical receptionist services",
+    "metaTitle": "Virtual Medical Receptionist Benefits | VAM",
+    "sources": [
+      {
+        "label": "HHS: Business associate contracts and patient-information safeguards",
+        "url": "https://www.hhs.gov/hipaa/for-professionals/covered-entities/sample-business-associate-agreement-provisions/index.html"
+      }
+    ]
   },
   {
     "slug": "virtual-medical-scribe-documentation",
@@ -122,7 +129,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "image": "/images/blog-guide-3.webp",
     "imageAlt": "Medical professional reviewing clinical documentation on a computer",
     "published": "2026-10-27",
-    "readTime": "9 min read",
+    "readTime": "5 min read",
     "focusKeyword": "virtual medical scribe",
     "intro": [
       "After the last appointment, many clinicians still have a second shift waiting: finishing notes, checking templates, and closing charts. A virtual medical scribe can help prepare documentation so a provider spends less time organizing routine note details.",
@@ -218,7 +225,18 @@ export const BLOG_POSTS: BlogPost[] = [
       }
     ],
     "serviceLink": "/virtual-medical-scribe/",
-    "serviceLabel": "Explore virtual medical scribe support"
+    "serviceLabel": "Explore virtual medical scribe support",
+    "metaTitle": "Virtual Medical Scribes: Documentation Support | VAM",
+    "sources": [
+      {
+        "label": "CMS: Medical record documentation and signature requirements",
+        "url": "https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Downloads/pim83c03.pdf"
+      },
+      {
+        "label": "HHS: Business associate contracts and patient-information safeguards",
+        "url": "https://www.hhs.gov/hipaa/for-professionals/covered-entities/sample-business-associate-agreement-provisions/index.html"
+      }
+    ]
   },
   {
     "slug": "medical-billing-process-guide",
@@ -229,7 +247,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "image": "/images/billing-team-support.webp",
     "imageAlt": "Healthcare billing professional reviewing administrative claims information",
     "published": "2026-10-27",
-    "readTime": "10 min read",
+    "readTime": "5 min read",
     "focusKeyword": "medical billing process",
     "intro": [
       "Medical billing is often described as sending a claim and receiving payment. In practice, it is a connected series of tasks that starts before a patient arrives and continues until the account is accurately resolved.",
@@ -328,7 +346,18 @@ export const BLOG_POSTS: BlogPost[] = [
       }
     ],
     "serviceLink": "/services/medical-billing-assistant/",
-    "serviceLabel": "Explore medical billing assistant services"
+    "serviceLabel": "Explore medical billing assistant services",
+    "metaTitle": "Medical Billing Process: Step-by-Step Guide | VAM",
+    "sources": [
+      {
+        "label": "CMS: Electronic health care claims",
+        "url": "https://www.cms.gov/medicare/coding-billing/electronic-billing/electronic-healthcare-claims"
+      },
+      {
+        "label": "HHS: Business associate contracts and patient-information safeguards",
+        "url": "https://www.hhs.gov/hipaa/for-professionals/covered-entities/sample-business-associate-agreement-provisions/index.html"
+      }
+    ]
   },
   {
     "slug": "dental-virtual-assistant",
@@ -339,7 +368,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "image": "/images/reception-scheduling-new.webp",
     "imageAlt": "Administrative professional coordinating dental appointments from a computer",
     "published": "2026-10-27",
-    "readTime": "8 min read",
+    "readTime": "4 min read",
     "focusKeyword": "dental virtual assistant",
     "intro": [
       "Dental offices have an unusual mix of scheduling pressure and patient coordination. Hygiene recalls, treatment consultations, cancellations, insurance questions, and calls from patients in discomfort can all arrive within the same hour.",
@@ -428,7 +457,14 @@ export const BLOG_POSTS: BlogPost[] = [
       }
     ],
     "serviceLink": "/virtual-medical-receptionist/",
-    "serviceLabel": "Explore virtual reception for dental practices"
+    "serviceLabel": "Explore virtual reception for dental practices",
+    "metaTitle": "Dental Virtual Assistant: A Practical Guide | VAM",
+    "sources": [
+      {
+        "label": "HHS: Business associate contracts and patient-information safeguards",
+        "url": "https://www.hhs.gov/hipaa/for-professionals/covered-entities/sample-business-associate-agreement-provisions/index.html"
+      }
+    ]
   },
   {
     "slug": "bilingual-medical-virtual-assistant",
@@ -439,7 +475,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "image": "/images/contact-vam-assistant.webp",
     "imageAlt": "Medical virtual assistant wearing a headset and speaking with a caller",
     "published": "2026-10-27",
-    "readTime": "8 min read",
+    "readTime": "4 min read",
     "focusKeyword": "bilingual medical virtual assistant",
     "intro": [
       "Patients need to understand how to reach their practice, book a visit, and follow the next administrative step. When those conversations happen in a language a caller is not comfortable using, even routine tasks can become frustrating.",
@@ -528,7 +564,18 @@ export const BLOG_POSTS: BlogPost[] = [
       }
     ],
     "serviceLink": "/virtual-medical-receptionist/",
-    "serviceLabel": "Explore patient call and reception support"
+    "serviceLabel": "Explore patient call and reception support",
+    "metaTitle": "Bilingual Medical Virtual Assistant Benefits | VAM",
+    "sources": [
+      {
+        "label": "AHRQ: Address language differences in healthcare",
+        "url": "https://www.ahrq.gov/health-literacy/improve/precautions/tool9.html"
+      },
+      {
+        "label": "HHS: Business associate contracts and patient-information safeguards",
+        "url": "https://www.hhs.gov/hipaa/for-professionals/covered-entities/sample-business-associate-agreement-provisions/index.html"
+      }
+    ]
   },
   {
     "slug": "healthcare-virtual-assistant-pennsylvania",
@@ -539,7 +586,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "image": "/images/admin-vam-team.webp",
     "imageAlt": "Healthcare administrative support team coordinating virtual medical assistant workflows",
     "published": "2026-10-27",
-    "readTime": "9 min read",
+    "readTime": "4 min read",
     "focusKeyword": "healthcare virtual assistant Pennsylvania",
     "intro": [
       "Whether a Pennsylvania practice serves patients in Philadelphia, Pittsburgh, Harrisburg, or a smaller community, administrative work can compete with time spent helping patients. Phone volume, appointment coordination, referrals, and insurance follow-up often involve the same repeatable steps.",
@@ -617,7 +664,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         "question": "Does a virtual assistant need to be located in Pennsylvania?",
-        "answer": "Not generally for routine remote administrative duties, but confirm any requirements relevant to the work, your contracts, and the people accessing patient information."
+        "answer": "Confirm any location requirements for the specific tasks, payer or vendor contracts, privacy arrangements, and personnel accessing records before hiring. Obtain appropriate advice for requirements that apply to your practice."
       },
       {
         "question": "What tasks are good to outsource first?",
@@ -637,6 +684,13 @@ export const BLOG_POSTS: BlogPost[] = [
       }
     ],
     "serviceLink": "/services/medical-admin-assistant/",
-    "serviceLabel": "Explore medical administrative assistant services"
+    "serviceLabel": "Explore medical administrative assistant services",
+    "metaTitle": "Healthcare Virtual Assistant in Pennsylvania | VAM",
+    "sources": [
+      {
+        "label": "HHS: Business associate contracts and patient-information safeguards",
+        "url": "https://www.hhs.gov/hipaa/for-professionals/covered-entities/sample-business-associate-agreement-provisions/index.html"
+      }
+    ]
   }
 ]
