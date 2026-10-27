@@ -5,6 +5,7 @@ import ContactPage from './pages/ContactPage'
 import FAQsPage from './pages/FAQsPage'
 import PricingPage from './pages/PricingPage'
 import BlogPage from './pages/BlogPage'
+import BlogArticlePage from './pages/BlogArticlePage'
 import HiringYourVAPage from './pages/HiringYourVAPage'
 import HipaaPage from './pages/HipaaPage'
 import RemotePatientMonitoringPage from './pages/RemotePatientMonitoringPage'
@@ -49,6 +50,7 @@ export const router = createBrowserRouter([
       { path: 'faqs', Component: FAQsPage },
       { path: 'pricing', Component: PricingPage },
       { path: 'blog', Component: BlogPage },
+      { path: 'blog/:slug', Component: BlogArticlePage },
       { path: 'virtual-medical-scribe', Component: VirtualMedicalScribePage },
       { path: 'services/virtual-medical-scribe', element: <Navigate to="/virtual-medical-scribe/" replace /> },
       { path: 'virtual-medical-receptionist', Component: VirtualMedicalReceptionistPage },
