@@ -226,6 +226,7 @@ export default function Layout() {
                     </Link>
                   </li>
                 ))}
+                <li><Link to="/bilingual-answering-service/" className="hover:text-teal-400 transition-colors leading-snug block">Bilingual Answering Service</Link></li>
               </ul>
             </div>
 

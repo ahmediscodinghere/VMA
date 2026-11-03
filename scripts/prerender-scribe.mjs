@@ -5,20 +5,21 @@ import { MemoryRouter, Routes, Route } from 'react-router'
 import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises'
 const server = await createServer({server:{middlewareMode:true},appType:'custom'})
 try {
- for(const [module,slug,prefix] of [['VirtualMedicalScribePage','virtual-medical-scribe','SCRIBE'],['VirtualMedicalReceptionistPage','virtual-medical-receptionist','RECEPTION'],['AboutPage','about-us','ABOUT'],['ContactPage','contact-us','CONTACT'],['ServicesPage','services','SERVICES'],['FAQsPage','faqs','FAQS'],['PricingPage','pricing','PRICING'],['MedicalAdminPage','services/medical-admin-assistant','ADMIN'],['MedicalBillingPage','services/medical-billing-assistant','BILLING'],['MedicalCoderPage','services/virtual-medical-coder','CODER'],['HiringYourVAPage','hiring-your-va','HIRING'],['HipaaPage','hipaa-compliant-virtual-assistant','HIPAA'],['RemotePatientMonitoringPage','services/remote-patient-monitoring-support','RPM'],['PrivacyPolicyPage','privacy-policy','PRIVACY'],['TermsPage','terms-and-conditions','TERMS'],['ReturnPolicyPage','return-policy','RETURN']]) {
+ for(const [module,slug,prefix] of [['VirtualMedicalScribePage','virtual-medical-scribe','SCRIBE'],['VirtualMedicalReceptionistPage','virtual-medical-receptionist','RECEPTION'],['AboutPage','about-us','ABOUT'],['ContactPage','contact-us','CONTACT'],['ServicesPage','services','SERVICES'],['FAQsPage','faqs','FAQS'],['PricingPage','pricing','PRICING'],['MedicalAdminPage','services/medical-admin-assistant','ADMIN'],['MedicalBillingPage','services/medical-billing-assistant','BILLING'],['MedicalCoderPage','services/virtual-medical-coder','CODER'],['HiringYourVAPage','hiring-your-va','HIRING'],['HipaaPage','hipaa-compliant-virtual-assistant','HIPAA'],['RemotePatientMonitoringPage','services/remote-patient-monitoring-support','RPM'],['PrivacyPolicyPage','privacy-policy','PRIVACY'],['TermsPage','terms-and-conditions','TERMS'],['ReturnPolicyPage','return-policy','RETURN'],['BilingualAnsweringPage','bilingual-answering-service','BILINGUAL']]) {
  const loaded=await server.ssrLoadModule('/src/pages/'+module+'.tsx'); const Page=loaded.default, SCRIBE_TITLE=loaded[prefix+'_TITLE'], SCRIBE_DESCRIPTION=loaded[prefix+'_DESCRIPTION']
  let pageElement=React.createElement(Page)
- if (['privacy-policy','terms-and-conditions','return-policy'].includes(slug)) {
+ if (['privacy-policy','terms-and-conditions','return-policy','bilingual-answering-service'].includes(slug)) {
    const {default:Layout}=await server.ssrLoadModule('/src/components/Layout.tsx')
    pageElement=React.createElement(Routes,null,React.createElement(Route,{element:React.createElement(Layout)},React.createElement(Route,{path:'/'+slug+'/',element:pageElement})))
  }
  let markup=renderToString(React.createElement(MemoryRouter,{initialEntries:['/'+slug+'/']},pageElement))
+ const pageOrigin=slug==='bilingual-answering-service'?'https://virtualassistantmedical.us':'https://virtual-assistant-medical.ahmed-raza276082.chatgpt.site'
  const assets=await readdir('dist/assets')
  markup=markup.replace(/\/src\/assets\/([^"?)\s]+)(?:\?[^" )]*)?/g,(_,name)=>{const stem=name.replace(/\.[^.]+$/,'');const hit=assets.find(x=>x.startsWith(stem+'-'));if(!hit)throw new Error('Missing asset '+name);return '/assets/'+hit})
  markup=markup.replace(/<title>.*?<\/title>|<meta\b[^>]*>|<link\b[^>]*rel="canonical"[^>]*>/g,'')
  let html=await readFile('dist/index.html','utf8')
  html=html.replace(/<title>.*?<\/title>/s,`<title>${SCRIBE_TITLE}</title>`).replace(/<meta\b[^>]*(?:name="(?:description|robots)"|property="og:[^"]+")[^>]*>/g,'')
- html=html.replace('</head>',`<meta name="description" content="${SCRIBE_DESCRIPTION}"><meta name="robots" content="index, follow"><link rel="canonical" href="https://virtual-assistant-medical.ahmed-raza276082.chatgpt.site/${slug}/"><meta property="og:title" content="${SCRIBE_TITLE}"><meta property="og:description" content="${SCRIBE_DESCRIPTION}"><meta property="og:url" content="https://virtual-assistant-medical.ahmed-raza276082.chatgpt.site/${slug}/"><meta property="og:type" content="website"></head>`).replace('<div id="root"></div>',`<div id="root">${markup}</div>`)
+ html=html.replace('</head>',`<meta name="description" content="${SCRIBE_DESCRIPTION}"><meta name="robots" content="index, follow"><link rel="canonical" href="${pageOrigin}/${slug}/"><meta property="og:title" content="${SCRIBE_TITLE}"><meta property="og:description" content="${SCRIBE_DESCRIPTION}"><meta property="og:url" content="${pageOrigin}/${slug}/"><meta property="og:type" content="website">${slug==='bilingual-answering-service'?'<meta property="og:image" content="https://virtualassistantmedical.us/images/bilingual-answering-hero.webp">':''}</head>`).replace('<div id="root"></div>',`<div id="root">${markup}</div>`)
  await mkdir('dist/'+slug,{recursive:true});await writeFile('dist/'+slug+'/index.html',html)
  }
 
@@ -42,7 +43,7 @@ try {
    await mkdir('dist/'+entry.path,{recursive:true});await writeFile('dist/'+entry.path+'/index.html',html)
  }
  const base='https://virtualassistantmedical.us';
- const slugs=['virtual-medical-scribe','virtual-medical-receptionist','about-us','contact-us','services','faqs','pricing','services/medical-admin-assistant','services/medical-billing-assistant','blog','services/virtual-medical-coder','hiring-your-va','hipaa-compliant-virtual-assistant','services/remote-patient-monitoring-support','privacy-policy','terms-and-conditions','return-policy',...BLOG_POSTS.map(post=>'blog/'+post.slug)];
+ const slugs=['virtual-medical-scribe','virtual-medical-receptionist','about-us','contact-us','services','faqs','pricing','services/medical-admin-assistant','services/medical-billing-assistant','blog','services/virtual-medical-coder','hiring-your-va','hipaa-compliant-virtual-assistant','services/remote-patient-monitoring-support','privacy-policy','terms-and-conditions','return-policy','bilingual-answering-service',...BLOG_POSTS.map(post=>'blog/'+post.slug)];
  await writeFile('dist/robots.txt','User-agent: *\n'+slugs.map(s=>'Allow: /'+s+'/\n').join('')+'Allow: /assets/\nDisallow: /\nSitemap: '+base+'/sitemap.xml\n')
  await writeFile('dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+slugs.map(s=>'<url><loc>'+base+'/'+s+'/</loc></url>').join('')+'</urlset>')
  console.log('Service pages, policies, blog index and '+BLOG_POSTS.length+' articles prerendered with metadata, structured data and sitemap.')

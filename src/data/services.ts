@@ -1,4 +1,5 @@
 import { FEATURED_ROLES } from './roles'
+import { BILINGUAL_TITLE, BILINGUAL_DESCRIPTION, bilingualTasks, bilingualSteps, bilingualFAQs } from './bilingualAnswering'
 
 export interface ServiceData {
   slug: string
@@ -976,6 +977,30 @@ export const SERVICES: ServiceData[] = [
     seoTitle: 'Back-Office Administrative Support | Virtual Assistant Medical',
     metaDescription: 'Remote back-office administrative support for healthcare practices. Reporting, vendor coordination, and operational organization.',
   },
+  {
+    slug: 'bilingual-answering-service',
+    shortTitle: 'Bilingual Answering Service',
+    title: 'Bilingual Answering Service for Healthcare Practices',
+    icon: '🌐',
+    tagline: 'Clear patient conversations and practical front-desk handoffs',
+    heroDescription: ['Virtual Assistant Medical helps healthcare practices manage routine patient calls, scheduling requests, reminders, and callbacks with bilingual administrative support. Languages, coverage, and access are confirmed during onboarding.'],
+    overviewHeading: 'Bilingual call support built around your practice',
+    overviewBody: 'A bilingual virtual assistant follows your approved scripts, scheduling rules, and escalation process. Keep routine administrative conversations organized while your licensed team handles medical advice and clinical decisions.',
+    tasks: bilingualTasks.map(task => task.title + ': ' + task.text),
+    benefits: [
+      { icon: '💬', title: 'Clearer patient communication', desc: 'Help callers understand routine scheduling information and administrative next steps.' },
+      { icon: '☎', title: 'Front-desk support', desc: 'Organize messages and callback requests during your agreed coverage hours.' },
+      { icon: '✓', title: 'Consistent handoffs', desc: 'Keep documentation, task ownership, and escalation aligned with your practice.' },
+    ],
+    steps: bilingualSteps.map(step => ({title: step.title, desc: step.text})),
+    audiences: ['Primary Care Clinics', 'Specialty Practices', 'Dental Offices', 'Outpatient Centers', 'Multi-location Practices'],
+    faqs: bilingualFAQs,
+    relatedSlugs: ['phone-answering', 'appointment-scheduling', 'patient-communication'],
+    heroImage: '/images/bilingual-answering-hero.webp',
+    seoTitle: BILINGUAL_TITLE,
+    metaDescription: BILINGUAL_DESCRIPTION,
+  },
+
 ]
 
 export const getServiceBySlug = (slug: string) => SERVICES.find(s => s.slug === slug) ?? FEATURED_ROLES.find(s => s.slug === slug)
