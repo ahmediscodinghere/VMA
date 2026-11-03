@@ -1,6 +1,11 @@
 export const BILINGUAL_TITLE = 'Bilingual Answering Service for Healthcare | VAM'
 export const BILINGUAL_DESCRIPTION = 'Bilingual answering service for healthcare practices. Get support with patient calls, scheduling, reminders, and callbacks from Virtual Assistant Medical.'
 export const BILINGUAL_URL = 'https://virtualassistantmedical.us/bilingual-answering-service/'
+export const bilingualPlans = [
+  { id: 'call-coverage', label: 'Flexible call coverage', title: 'Bilingual answering service', summary: 'Overflow, lunch, and after-hours call coverage.', rate: 12, schedule: 'Coverage arranged around your call flow', featured: false, features: ['Live English and Spanish answering', 'Appointment booking and messages', 'Notes delivered in English', 'Extended-hours options by arrangement'], cta: 'Discuss Call Coverage' },
+  { id: 'full-time', label: 'Dedicated support', title: 'Full-time bilingual virtual assistant', summary: 'A dedicated assistant for your whole working day.', rate: 13, schedule: '40 hours per week on your schedule', featured: true, features: ['40 hours a week on your schedule', 'Calls, intake, and scheduling in both languages', 'Practice-approved scripts and clear handoffs', 'Regular workflow and follow-up reviews'], cta: 'Discuss Full-Time Support' },
+  { id: 'part-time', label: 'Part-time support', title: 'Part-time bilingual virtual assistant', summary: 'Bilingual help during your business hours.', rate: 14, schedule: '20 hours per week', featured: false, features: ['20 hours a week', 'Calls, scheduling, and reminders', 'Recall and follow-up in Spanish', 'Organized messages and callback tracking'], cta: 'Discuss Part-Time Support' },
+]
 export const bilingualTasks = [
   { title: 'Incoming calls', text: 'Greet callers, identify their needs, record accurate messages, and route urgent concerns according to practice-defined procedures.', icon: 'phone' },
   { title: 'Appointment scheduling', text: 'Assist with booking, rescheduling, and cancellation requests through authorized scheduling systems.', icon: 'calendar' },

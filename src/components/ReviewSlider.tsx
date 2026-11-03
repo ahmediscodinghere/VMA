@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import './ReviewSlider.css'
 type Review={name:string;role:string;quote:string;stars:number;image?:string}
-export default function ReviewSlider({reviews}:{reviews:Review[]}){
+export default function ReviewSlider({reviews,arrows=false}:{reviews:Review[];arrows?:boolean}){
  const viewport=useRef<HTMLDivElement>(null),pointerStart=useRef<number|null>(null)
  const [index,setIndex]=useState(0),[step,setStep]=useState(0),[animate,setAnimate]=useState(true)
  const [playing,setPlaying]=useState(false),[hover,setHover]=useState(false)
@@ -16,6 +16,6 @@ export default function ReviewSlider({reviews}:{reviews:Review[]}){
  <div className="vr-person"><img src={r.image||`/images/review-portrait-${[1,3,2,4][i%count]}.webp`} alt="Illustrative physician portrait" width="88" height="88" loading="lazy"/><strong>{r.name}</strong><span>{r.role}</span></div>
  <blockquote>“{r.quote}”</blockquote><div className="vr-stars" aria-label={`${r.stars} out of 5 stars`}>{'★'.repeat(r.stars)}</div>
  </article>)}</div></div>
- <div className="vr-controls"><div className="vr-dots" aria-label="Choose a review">{reviews.map((r,i)=><button key={r.name} type="button" className={index%count===i?'active':''} aria-label={`Show review from ${r.name}`} aria-current={index%count===i?'true':undefined} onClick={()=>choose(i)}/>)}</div><button className="vr-play" type="button" aria-label={playing?'Pause automatic sliding':'Resume automatic sliding'} aria-pressed={playing} onClick={()=>setPlaying(p=>!p)}>{playing?'Ⅱ':'▶'}</button></div>
+ <div className="vr-controls">{arrows&&<button type="button" className="vr-arrow vr-previous" aria-label="Previous review" onClick={()=>choose((index+count-1)%count)}>←</button>}<div className="vr-dots" aria-label="Choose a review">{reviews.map((r,i)=><button key={r.name} type="button" className={index%count===i?'active':''} aria-label={`Show review from ${r.name}`} aria-current={index%count===i?'true':undefined} onClick={()=>choose(i)}/>)}</div><button className="vr-play" type="button" aria-label={playing?'Pause automatic sliding':'Resume automatic sliding'} aria-pressed={playing} onClick={()=>setPlaying(p=>!p)}>{playing?'Ⅱ':'▶'}</button>{arrows&&<button type="button" className="vr-arrow vr-next" aria-label="Next review" onClick={()=>choose((index+1)%count)}>→</button>}</div>
  <p className="vr-photo-note">Portrait photos are illustrative.</p></div>
 }
