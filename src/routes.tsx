@@ -6,6 +6,7 @@ import FAQsPage from './pages/FAQsPage'
 import PricingPage from './pages/PricingPage'
 import BlogPage from './pages/BlogPage'
 import BilingualAnsweringPage from './pages/BilingualAnsweringPage'
+import MedicalOfficeAnsweringPage from './pages/MedicalOfficeAnsweringPage'
 import BlogArticlePage from './pages/BlogArticlePage'
 import HiringYourVAPage from './pages/HiringYourVAPage'
 import HipaaPage from './pages/HipaaPage'
@@ -42,6 +43,8 @@ export const router = createBrowserRouter([
       { index: true, Component: HomePage },
       { path: 'services', Component: ServicesPage },
       { path: 'bilingual-answering-service', Component: BilingualAnsweringPage },
+      { path: 'medical-office-answering-service', Component: MedicalOfficeAnsweringPage },
+      { path: 'services/medical-office-answering-service', element: <Navigate to="/medical-office-answering-service/" replace /> },
       { path: 'services/bilingual-answering-service', element: <Navigate to="/bilingual-answering-service/" replace /> },
       { path: 'about-us', Component: AboutPage },
       { path: 'hiring-your-va', Component: HiringYourVAPage },

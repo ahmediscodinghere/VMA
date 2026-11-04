@@ -1,5 +1,6 @@
 import { FEATURED_ROLES } from './roles'
 import { BILINGUAL_TITLE, BILINGUAL_DESCRIPTION, bilingualTasks, bilingualSteps, bilingualFAQs } from './bilingualAnswering'
+import { MEDICAL_ANSWERING_TITLE, MEDICAL_ANSWERING_DESCRIPTION, medicalAnsweringTasks, medicalAnsweringFAQs, medicalAnsweringBenefits } from './medicalOfficeAnswering'
 
 export interface ServiceData {
   slug: string
@@ -1001,6 +1002,25 @@ export const SERVICES: ServiceData[] = [
     metaDescription: BILINGUAL_DESCRIPTION,
   },
 
+  {
+    slug: 'medical-office-answering-service',
+    shortTitle: 'Medical Office Answering Service',
+    title: 'Medical Office Answering Service for US Healthcare Practices',
+    icon: '☎',
+    tagline: 'A helpful person on the line and a clear next step for your patients',
+    heroDescription: ['Virtual Assistant Medical supports US healthcare practices with routine patient calls, scheduling, messages, and call routing. Coverage and responsibilities follow your approved workflows.'],
+    overviewHeading: 'Medical call answering built around your practice',
+    overviewBody: 'Give patients a professional point of contact while your in-house staff focuses on the clinic. Assistants follow approved scripts and scheduling permissions, and send medical concerns to your designated clinical team.',
+    tasks: medicalAnsweringTasks.map(task => task.title + ': ' + task.text),
+    benefits: medicalAnsweringBenefits.map(title => ({ icon: '✓', title, desc: 'Support planned around your practice’s call volume, office hours, and approved procedures.' })),
+    steps: [{ title: 'Review your calls', desc: 'Discuss call patterns, coverage hours, and front-desk priorities.' }, { title: 'Define the workflow', desc: 'Agree scripts, access, scheduling permissions, and escalation contacts.' }, { title: 'Begin and review', desc: 'Confirm the service scope and review calls and follow-ups with your team.' }],
+    audiences: ['Primary Care', 'Dental Practices', 'Behavioral Health', 'Physical Therapy', 'Specialty Clinics', 'Multi-provider Groups'],
+    faqs: medicalAnsweringFAQs,
+    relatedSlugs: ['bilingual-answering-service', 'phone-answering', 'appointment-scheduling'],
+    heroImage: '/images/medical-office-answering-hero.webp',
+    seoTitle: MEDICAL_ANSWERING_TITLE,
+    metaDescription: MEDICAL_ANSWERING_DESCRIPTION,
+  },
 ]
 
 export const getServiceBySlug = (slug: string) => SERVICES.find(s => s.slug === slug) ?? FEATURED_ROLES.find(s => s.slug === slug)
